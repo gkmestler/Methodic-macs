@@ -1,0 +1,482 @@
+// SINGLE SOURCE OF TRUTH
+// Every number, quote, and block of copy on the site lives here.
+// Components read from this file. Edit copy and figures here, never in layout.
+// Accuracy guardrails (Section 6 of the brief) are enforced by keeping every
+// on-screen figure traceable to a constant below.
+
+export const siteConfig = {
+  // Flip enabled to lock the site behind a single shared passphrase.
+  // Courtesy lock only, not real security.
+  passwordGate: { enabled: false, passphrase: "" },
+  confidential: true,
+  year: 2026,
+  assets: {
+    people: "/images", // portraits, referenced by explicit web-safe path
+    macsPhotos: "/images/macs", // the two truck photos
+    logos: "/logos", // white icon + horizontal wordmark lockup
+  },
+  logos: {
+    iconWhite: "/logos/icon-white.png",
+    horizontalWhite: "/logos/horizontal-white.png",
+    // Black marks for any light-background placement, from the brand site.
+    iconBlack: "https://methodic-brand.vercel.app/logos/icon-black.svg",
+    horizontalBlack: "https://methodic-brand.vercel.app/logos/horizontal-black.png",
+  },
+} as const;
+
+export const brand = {
+  colors: {
+    ink: "#0A0A0A",
+    paper: "#FFFFFF",
+    offWhite: "#F7F7F5",
+    richBlack: "#1A1A1A",
+    deepBlue: "#4A7FA8",
+    skyBlue: "#89B4D4",
+    iceBlue: "#C5DCF0",
+    slate: "#6B7280",
+  },
+  tagline: "Preserving What Works. Unlocking What's Possible.",
+} as const;
+
+export const methodic = {
+  name: "Methodic Ventures",
+  oneLiner:
+    "Methodic Ventures acquires and holds essential service businesses. We preserve what sellers built and modernize operations from the back end.",
+
+  thesis: {
+    kicker: "The Opportunity",
+    title: "The Greatest Wealth Transfer in History",
+    titleAccent: "Wealth Transfer", // rendered in Deep Blue
+    // Headline stats. Value is the number, format renders the percent.
+    stats: [
+      { value: 51, label: "of U.S. businesses are owned by baby boomers" },
+      { value: 100, label: "will reach retirement age within 6 years" },
+      { value: 85, label: "have no formal transition plan" },
+      { value: 70, label: "of businesses listed never find a buyer" },
+    ],
+  },
+
+  buyBox: {
+    kicker: "The Buy Box",
+    intro:
+      "A repeatable filter, not a one-off. Discipline is the point. We know exactly what we buy and what we pass on.",
+    verticals: [
+      "HVAC",
+      "Electrical",
+      "Plumbing",
+      "Landscaping",
+      "Pest Control",
+      "Roofing",
+      "Fire Safety",
+    ],
+    // Geography and Structure hold true of every deal. Size and Multiple are the
+    // platform target / steady-state standard, flagged with platformTarget.
+    criteria: [
+      { label: "Geography", value: "New England", platformTarget: false },
+      { label: "Size", value: "~$500K to $1.5M EBITDA", platformTarget: true },
+      { label: "Multiple", value: "3 to 4x", platformTarget: true },
+      { label: "Structure", value: "Holdco / SPV, co-investor equity plus conventional debt", platformTarget: false },
+    ],
+  },
+
+  // Framing copy for the Buy Box and its handoff into Mac's (Section 5).
+  // Editable in one place so the box reads as the standard we build toward,
+  // and Mac's reads as a deliberate entry below it.
+  buyBoxFraming: {
+    headline: "The standard every deal is measured against.",
+    platformTargetLabel: "Platform Target",
+    bridgeLine:
+      "Our first acquisition is a deliberate entry below the box. We bought near asset value because the downside was covered and the upside was obvious. Buying below the standard, when the math is clearly in our favor, is part of the discipline, not an exception to it.",
+  },
+
+  investorDeal: {
+    kicker: "The Investor Deal",
+    title: "You own the platform, not one deal.",
+    lead:
+      "You are not buying a landscaping company. You are buying equity in Methodic Landscaping, the company that acquires and holds every business we buy.",
+    blocks: [
+      {
+        label: "What You Own",
+        body: "A piece of the whole platform, not a single deal. You own Methodic Landscaping, and Methodic Landscaping owns the businesses.",
+      },
+      {
+        label: "What It Gives You",
+        body: "Every business we acquire, you already own part of. The margin from running them all on one back office, one supply line, one insurance program flows up to the platform. So does the exit.",
+      },
+      {
+        label: "Why Early Wins",
+        body: "The earlier you are in, the more of the platform you hold. Deal one is the ground floor. You also get right of first refusal and priority on every future round, so you keep your seat as we grow.",
+      },
+    ],
+    pullQuote: "You own the company that buys the companies.",
+  },
+
+  // Bios pulled from methodicventures.com. The co-founders have no published
+  // bio on the site, so their bio is intentionally left blank here.
+  partners: [
+    {
+      name: "Gavin Mestler",
+      role: "Co-Founder",
+      photo: "/images/gavin-mestler.png",
+      bio: "",
+      // Move the crop down so the top of his head is not cut off.
+      imgPosition: "50% 20%",
+    },
+    {
+      name: "Logan Mestler",
+      role: "Co-Founder",
+      photo: "/images/logan-mestler.png",
+      bio: "",
+      // Top-align the crop so "cover" trims the bottom, not his head, then push
+      // down with offsetY to add headroom. (Centering here clipped his hair
+      // before the transform ran.) Higher offsetY % = lower in the frame.
+      imgPosition: "50% 0%",
+      imgScale: 1.52,
+      imgOffsetY: "19%",
+    },
+    {
+      name: "Dean Farber",
+      role: "Co-Founder",
+      photo: "/images/dean-farber.png",
+      bio: "",
+      // Top-align so the crop trims the bottom, then a slight zoom and a small
+      // downward offset (same approach as Logan).
+      imgPosition: "50% 0%",
+      imgScale: 1.15,
+      imgOffsetY: "10%",
+    },
+  ],
+
+  // Advisory board. Roles and bios pulled from methodicventures.com.
+  // Photos matched by name from /images. Trivial to add, swap, or remove.
+  advisors: [
+    {
+      name: "Brad Johnson",
+      role: "Operations",
+      photo: "/images/brad-johnson.jpg",
+      bio: "Professor Emeritus at Babson College and former Vice President at Wayfair.",
+    },
+    {
+      name: "Scott Waxler",
+      role: "M&A",
+      photo: "/images/scott-waxler.jpg",
+      bio: "Founder, Lockebridge Capital Partners.",
+    },
+    {
+      name: "Evan Farber",
+      role: "Legal",
+      photo: "/images/evan-farber.png",
+      bio: "General Counsel at The Cranemere Group and Board Member of Flotek Industries.",
+    },
+    {
+      name: "Matt Walker",
+      role: "Acquisitions",
+      photo: "/images/matt-walker.png",
+      bio: "Investor, operator, and entrepreneur specializing in business acquisitions and real estate.",
+    },
+    {
+      name: "Erik Noyes",
+      role: "Strategy",
+      photo: "/images/erik-noyes.jpg",
+      bio: "Director of The Generator AI Lab at Babson College and a Top 50 business professor in the United States by Poets & Quants.",
+    },
+    {
+      name: "Edward Gorelick",
+      role: "Accounting",
+      photo: "/images/edward-gorelick.jpg",
+      bio: "Founder of Gorelick & Uslaner, CPAs.",
+    },
+    {
+      name: "Chad Mestler",
+      role: "Capital Markets",
+      photo: "/images/chad-mestler.jpg",
+      bio: "Founder of Helvetica Group and Raiseli.com.",
+    },
+  ],
+
+  // Advisory board track record, shown as a stat band above the advisor cards.
+  advisorStats: [
+    { figure: "$2.6B+", label: "In M&A Transaction Value" },
+    { figure: "100+", label: "M&A Deals Advised" },
+    { figure: "$1B+", label: "Private Capital Deployed" },
+    { figure: "150+", label: "Years Combined Experience" },
+  ],
+} as const;
+
+export const macs = {
+  kicker: "Deal One",
+  name: "Mac's Landscaping",
+  logo: "/logos/macs-landscaping-logo.png", // Mac's own brand mark (1536x1024)
+  openerSubline: "51 years. 13 towns. Never been sold.",
+  sellerName: "Gerry McCarthy",
+  sellerRole: "Founder",
+  sellerPhoto: "/images/gerry-mccarthy.png",
+
+  photos: {
+    opener: "/images/macs/macs-truck-1.jpg", // darkened full-bleed behind the opener
+    accent: "/images/macs/macs-truck-2.jpg", // framed accent lower in the section
+  },
+
+  yearsInBusiness: 51,
+  founded: "1975",
+  peak: { revenue: "$5M", staff: "35" },
+
+  founderStory:
+    "Gerry McCarthy built Mac's Landscaping from the ground up in 1975. At its peak: $5M in revenue, 35 employees, and a 2.5-acre garden center. He intentionally scaled back. Now 71, ready to retire, and handing it to the right buyer for the first time in five decades.",
+
+  // The moat, as tight bullets. lead is emphasized, body follows (no em-dashes).
+  moatBullets: [
+    {
+      lead: "$3 to $4M liability insurance",
+      body: "shuts out cheap operators from commercial accounts.",
+    },
+    {
+      lead: "51-year brand recognition",
+      body: "across 13 suburban Massachusetts towns.",
+    },
+    {
+      lead: "55 full-service maintenance accounts",
+      body: "spring through fall, no discounted every-other-week clients.",
+    },
+    {
+      lead: "NALP board member",
+      body: "ran the national trade show for years.",
+    },
+    {
+      lead: "Commercial-only snowplowing",
+      body: "the highest-margin segment in the business.",
+    },
+  ],
+
+  // Pull quote from the long-time general manager, cleared for use.
+  moatQuote: {
+    text: "This company could easily be two or three times the size with the right type of marketing. Everyone I know says I see you everywhere.",
+    attribution: "Keith McCarthy, 30-year General Manager",
+  },
+
+  recurringAccounts: 55,
+
+  financials: {
+    revenueAvg: 848000, // 3-year average, 2022 to 2024
+    revenueAvgLabel: "3-Year Avg Revenue",
+    revenueYears: [
+      { year: 2022, value: 925633 },
+      { year: 2023, value: 853706 },
+      { year: 2024, value: 763688 },
+    ],
+    sdeEstimate: 120000, // conservative estimate, EDIT ME
+    sdeLabel: "SDE (in diligence)",
+    recurringLabel: "Recurring Accounts",
+    // Two small callout notes beneath the stat row.
+    notes: [
+      "Revenue decline reflects an owner-driven downscale, not market loss. Gerry stopped selling.",
+      "2026 YTD: $449K through June on a record snow season, the strongest stretch in the data.",
+    ],
+  },
+
+  setupLine: "The brand is intact. The sales muscle atrophied. That's the opportunity.",
+} as const;
+
+export const valueCreation = {
+  kicker: "The Value-Creation Plan",
+  title: "From a coasting shop to a run business.",
+  intro:
+    "Concrete levers, each grounded in the company's own evidence. This is what modernizing from the back end looks like in one business.",
+  levers: [
+    {
+      heading: "Restart commercial sales",
+      body: "Gerry's dormant canvassing program, with a proven three-year contract track record.",
+    },
+    {
+      heading: "Upsell the existing book",
+      body: "55 accounts never actively marketed to. Masonry, irrigation, and fertilization add-ons.",
+    },
+    {
+      heading: "Expand into high-end towns",
+      body: "Winchester, Wellesley, and Weston, adjacent to current territory. Gerry knows where the money is.",
+    },
+    {
+      heading: "Modernize operations",
+      body: "Field service software, CRM, and digital scheduling. Currently all manual.",
+    },
+    {
+      heading: "Right-size overhead",
+      body: "An admin structure built for a $5M company, running at $800K.",
+    },
+    {
+      heading: "Install the operator",
+      body: "Tiffany Sergi from day one. Keith McCarthy stays as crew and snow lead.",
+    },
+  ],
+  continuity:
+    "The seller stays on in an advisory role for 3 to 6 months, then exits. Keith McCarthy, the long-time general manager, stays on as crew and snow lead through the transition.",
+
+  // Optional GM pull quote. Only rendered when gmQuoteConfirmed is true.
+  // Attributed to "the general manager," never by name.
+  gmQuoteConfirmed: false,
+  gmQuote:
+    "This company could easily be two or three times the size with the right type of marketing.",
+  gmQuoteAttribution: "the general manager",
+
+  // Crew continuity confirm flag (Section 6 of the brief). Confirmed: Keith stays.
+  gmStaysThroughTransition: true,
+} as const;
+
+export const empire = {
+  kicker: "The Empire",
+  title: "Mac's is node one.",
+  intro: "Zoom out. One business proves the machine. The plan is a platform.",
+  steps: [
+    {
+      label: "Anchor",
+      body: "Landscaping is the beachhead. Prove the acquisition and operating playbook here.",
+    },
+    {
+      label: "Rollup",
+      body: "Add adjacent essential-service trades from the buy box, one disciplined deal at a time.",
+    },
+    {
+      label: "Consolidate",
+      body: "Unify back office, procurement and supply, insurance, and equipment across the portfolio to expand margin at the platform level.",
+    },
+    {
+      label: "Cross-sell",
+      body: "One trusted brand serving a shared customer base across multiple trades.",
+    },
+    {
+      label: "Exit",
+      body: "A consolidated essential-service platform positioned for a private-equity exit.",
+    },
+  ],
+  marketProof:
+    "A large, fragmented market being actively consolidated, with a category leader already at roughly $2.7B in revenue proving the model.",
+  marketProofFigure: "$2.7B",
+  marketProofCaption: "category leader revenue, proof the model works at scale",
+
+  // Platform diagram. Drives the holdco / shared-services / acquisitions tree.
+  platformName: "Methodic Landscaping",
+  platformCaption: "the platform",
+  sharedServicesLabel: "Shared across every business",
+  sharedServices: [
+    "Back office",
+    "Systems & CRM",
+    "Procurement & equipment",
+    "Insurance",
+    "One brand",
+  ],
+  nodes: [
+    { label: "Mac's Landscaping", tag: "Node one, acquired 2026", status: "owned" },
+    { label: "Acq #2", tag: "Future", status: "future" },
+    { label: "Acq #3", tag: "Future", status: "future" },
+    { label: "Acq #4", tag: "Future", status: "future" },
+  ],
+  diagramOutcome:
+    "Each business runs leaner on one back office, one supply line, one brand. Margin no single company could build alone shows up across all of them, and compounds with every acquisition.",
+  diagramLegend: {
+    owned: "solid means owned today",
+    dashed: "dashed means pipeline",
+  },
+} as const;
+
+export const team = {
+  kicker: "The Team",
+  title: "Team",
+  intro:
+    "The people who source the deals, run the businesses, and build the systems behind them.",
+  groupPhoto: "/images/methodic-main.jpg", // the three managing partners (3104x2294)
+  groupPhotoAlt:
+    "Gavin Mestler, Logan Mestler, and Dean Farber, the managing partners of Methodic Ventures",
+  groupPhotoCaption: "Gavin Mestler, Logan Mestler, and Dean Farber",
+  // Shared description shown under the three managing partner cards.
+  partnersDescription:
+    "Gavin Mestler, Logan Mestler, and Dean Farber are the co-founding partners of Methodic Ventures. Together they have raised over $420K across prior ventures and built businesses generating more than $1M in combined revenue. All three are members of Babson College's eTower, one of the country's leading institutional entrepreneurship communities.",
+  // Backed-by note and logo shown directly beneath the partners description.
+  eTowerNote:
+    "Methodic is backed by eTower, an elite entrepreneurship community founded at Babson College, with alumni that have built companies valued at over $3 billion.",
+  eTowerLogo: "/logos/etower-hero-logo.png", // 2262x1128
+  eTowerLogoAlt: "eTower",
+} as const;
+
+// Leadership. Each person gets their own full section (Tiffany, then Shah).
+// tagline, bio paragraphs, and highlights are easy to edit or extend.
+// [PLACEHOLDER] lines are ready for you to drop real copy into.
+export const leadership = [
+  {
+    id: "tiffany",
+    name: "Tiffany Sergi",
+    role: "Chief Executive Officer",
+    org: "Methodic Ventures",
+    photo: "/images/tiffany-sergi.png",
+    imgPosition: "50% 12%",
+    tagline: "She runs the businesses we buy.",
+    bio: [
+      "COO/CEO with 12+ years of experience scaling service-based businesses. At Landscapes by D&J, she grew revenue from $2M to $5M+ while increasing profitability.",
+      "Managed 60+ employees at peak season with full P&L ownership, built an 8-person leadership team with defined KPIs, and implemented ERP, CRM, and scheduling systems to drive operational efficiency at scale.",
+    ],
+    highlights: [
+      "Grew revenue from $2M to $5M+ at Landscapes by D&J",
+      "Managed 60+ employees at peak with full P&L ownership",
+      "Implemented ERP, CRM, and scheduling systems",
+    ],
+  },
+  {
+    id: "shah",
+    name: "Shah Durran",
+    role: "Chief Technology Officer",
+    org: "Methodic Ventures",
+    photo: "/images/shah-durran.png",
+    imgPosition: "50% 20%",
+    tagline: "He modernizes operations from the back end.",
+    bio: [
+      "Full stack developer and founder of Fluidify Systems, a business automation firm that has deployed hundreds of AI-driven systems for businesses across the United States.",
+      "Certified Make.com and n8n Automation Specialist with expertise in building seamless, high-performance automation solutions for operational efficiency and scalable growth.",
+    ],
+    highlights: [
+      "Founder of Fluidify Systems",
+      "Deployed hundreds of AI-driven systems nationwide",
+      "Certified Make.com and n8n Automation Specialist",
+    ],
+  },
+] as const;
+
+export const advisorsSection = {
+  title: "Advisory Board",
+} as const;
+
+export const ask = {
+  kicker: "The Ask",
+  title: "Deal one, on the table.",
+  total: 500000,
+  purchase: 400000,
+  workingCapital: 100000,
+  founderCommitment: 150000, // 3 x $50K
+  founderEach: 50000,
+  committedPct: 30,
+  breakdown: [
+    { label: "To acquire the business", value: 400000 },
+    { label: "Working capital", value: 100000 },
+  ],
+  skinInTheGame:
+    "The three partners have each committed $50K. $150K total, already in. Founders first.",
+  rofrReprise:
+    "Original investors receive right of first refusal and priority allocation on every future Methodic deal. This is the reason to commit on deal one.",
+  ctaHeading: "Express interest.",
+  ctaBody: "A short conversation is the next step. Reach out and we will walk you through the deal.",
+  contact: "[CONTACT DETAILS PLACEHOLDER]",
+} as const;
+
+// Ordered section nav (right-side dot nav on desktop, and anchors).
+export const sections = [
+  { id: "hero", label: "Methodic" },
+  { id: "team", label: "Team" },
+  { id: "tiffany", label: "Tiffany" },
+  { id: "shah", label: "Shah" },
+  { id: "advisors", label: "Advisors" },
+  { id: "thesis", label: "Opportunity" },
+  { id: "buy-box", label: "Buy Box" },
+  { id: "investor-deal", label: "The Deal" },
+  { id: "macs", label: "Mac's" },
+  { id: "value-creation", label: "Value Plan" },
+  { id: "empire", label: "The Empire" },
+  { id: "ask", label: "The Ask" },
+] as const;
