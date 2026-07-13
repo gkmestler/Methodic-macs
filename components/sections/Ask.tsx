@@ -42,10 +42,39 @@ export default function Ask() {
                   {usdShort(b.value)}
                 </p>
                 <p className="mt-3 text-sm text-paper/70">{b.label}</p>
+                {"note" in b && (
+                  <p className="mt-3 max-w-xs text-sm leading-relaxed text-paper/50">
+                    {b.note}
+                  </p>
+                )}
               </div>
             </Reveal>
           ))}
         </div>
+
+        {/* The terms: pref + profit split as a stat band */}
+        <Reveal>
+          <div className="mt-20">
+            <p className="kicker text-deepblue">{ask.terms.kicker}</p>
+            <div className="mt-8 grid gap-10 md:grid-cols-2">
+              {ask.terms.items.map((item) => (
+                <div
+                  key={item.label}
+                  className="border-t-2 border-deepblue pt-5"
+                >
+                  <p className="font-display text-5xl font-semibold sm:text-6xl">
+                    {item.figure}
+                  </p>
+                  <p className="mt-3 kicker text-paper/70">{item.label}</p>
+                  <p className="mt-3 max-w-md leading-relaxed text-paper/70">
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 text-sm text-paper/45">{ask.terms.footnote}</p>
+          </div>
+        </Reveal>
 
         {/* Skin in the game, emphasized beat with animated progress */}
         <Reveal>

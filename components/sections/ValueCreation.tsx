@@ -11,11 +11,6 @@ export default function ValueCreation() {
         <Kicker>{vc.kicker}</Kicker>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-5xl">
-          {vc.title}
-        </h2>
-      </Reveal>
-      <Reveal delay={0.1}>
         <p className="prose-measure mt-6 leading-relaxed text-ink/80">
           {vc.intro}
         </p>

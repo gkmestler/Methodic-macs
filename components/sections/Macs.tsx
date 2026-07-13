@@ -80,8 +80,11 @@ export default function Macs() {
             <Reveal delay={0.14}>
               <div className="mt-8 flex flex-wrap gap-x-10 gap-y-4">
                 <Stat label="Founded" value={macs.founded} />
-                <Stat label="Peak revenue" value={macs.peak.revenue} />
-                <Stat label="Peak staff" value={macs.peak.staff} />
+                <Stat label="Towns served" value={macs.townsServed} />
+                <Stat
+                  label="Maintenance accounts"
+                  value={String(macs.recurringAccounts)}
+                />
               </div>
             </Reveal>
           </div>
@@ -133,7 +136,7 @@ export default function Macs() {
       <div className="bg-ink text-paper">
         <div className="mx-auto w-full max-w-content px-6 py-24 sm:px-10 md:py-32">
           <Reveal>
-            <p className="kicker text-deepblue">Selective financials</p>
+            <p className="kicker text-deepblue">Recent financials</p>
           </Reveal>
 
           {/* Three-year revenue bars */}
@@ -185,25 +188,25 @@ export default function Macs() {
               </Reveal>
             ))}
           </div>
+
+          {/* The peak, emphasized: proof of ceiling right after today's numbers */}
+          <Reveal>
+            <p className="mt-16 max-w-3xl font-display text-2xl leading-snug text-paper sm:text-3xl">
+              {financials.peakLine}
+            </p>
+          </Reveal>
         </div>
       </div>
 
-      {/* Block 5. Setup line, then the closing truck photo, into the value plan */}
-      <div className="mx-auto w-full max-w-content px-6 py-24 sm:px-10 md:py-32">
+      {/* Block 5. Closing truck photo, into the value plan. No bottom padding:
+          the next section brings its own, and doubling up left dead space. */}
+      <div className="mx-auto w-full max-w-content px-6 pb-0 pt-24 sm:px-10 md:pt-32">
         <Reveal>
-          <p className="kicker text-slate">The setup</p>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <p className="mt-4 max-w-3xl font-display text-3xl leading-snug sm:text-4xl">
-            {macs.setupLine}
-          </p>
-        </Reveal>
-        <Reveal delay={0.1}>
           <Figure
             src={macs.photos.accent}
             alt="A Mac's Landscaping truck and equipment"
             fallbackLabel="Mac's fleet"
-            className="mt-12 aspect-[16/9] w-full"
+            className="aspect-[16/9] w-full"
             sizes="100vw"
           />
         </Reveal>

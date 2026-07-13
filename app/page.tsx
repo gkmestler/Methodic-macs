@@ -8,7 +8,6 @@ import Team from "@/components/sections/Team";
 import Leadership from "@/components/sections/Leadership";
 import Advisors from "@/components/sections/Advisors";
 import Thesis from "@/components/sections/Thesis";
-import BuyBox from "@/components/sections/BuyBox";
 import InvestorDeal from "@/components/sections/InvestorDeal";
 import Macs from "@/components/sections/Macs";
 import ValueCreation from "@/components/sections/ValueCreation";
@@ -26,7 +25,6 @@ export default function Home() {
         <Leadership />
         <Advisors />
         <Thesis />
-        <BuyBox />
         <InvestorDeal />
         <Macs />
         <ValueCreation />

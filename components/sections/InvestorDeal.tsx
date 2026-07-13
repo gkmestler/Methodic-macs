@@ -11,11 +11,6 @@ export default function InvestorDeal() {
         <Kicker>{investorDeal.kicker}</Kicker>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight text-paper sm:text-5xl">
-          {investorDeal.title}
-        </h2>
-      </Reveal>
-      <Reveal delay={0.1}>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-paper/80 sm:text-xl">
           {investorDeal.lead}
         </p>

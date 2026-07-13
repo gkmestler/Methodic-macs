@@ -56,44 +56,10 @@ export const methodic = {
     ],
   },
 
-  buyBox: {
-    kicker: "The Buy Box",
-    intro:
-      "A repeatable filter, not a one-off. Discipline is the point. We know exactly what we buy and what we pass on.",
-    verticals: [
-      "HVAC",
-      "Electrical",
-      "Plumbing",
-      "Landscaping",
-      "Pest Control",
-      "Roofing",
-      "Fire Safety",
-    ],
-    // Geography and Structure hold true of every deal. Size and Multiple are the
-    // platform target / steady-state standard, flagged with platformTarget.
-    criteria: [
-      { label: "Geography", value: "New England", platformTarget: false },
-      { label: "Size", value: "~$500K to $1.5M EBITDA", platformTarget: true },
-      { label: "Multiple", value: "3 to 4x", platformTarget: true },
-      { label: "Structure", value: "Holdco / SPV, co-investor equity plus conventional debt", platformTarget: false },
-    ],
-  },
-
-  // Framing copy for the Buy Box and its handoff into Mac's (Section 5).
-  // Editable in one place so the box reads as the standard we build toward,
-  // and Mac's reads as a deliberate entry below it.
-  buyBoxFraming: {
-    headline: "The standard every deal is measured against.",
-    platformTargetLabel: "Platform Target",
-    bridgeLine:
-      "Our first acquisition is a deliberate entry below the box. We bought near asset value because the downside was covered and the upside was obvious. Buying below the standard, when the math is clearly in our favor, is part of the discipline, not an exception to it.",
-  },
-
   investorDeal: {
     kicker: "The Investor Deal",
-    title: "You own the platform, not one deal.",
     lead:
-      "You are not buying a landscaping company. You are buying equity in Methodic Landscaping, the company that acquires and holds every business we buy.",
+      "You are not buying a landscaping company. You are buying equity in Methodic Landscaping, the platform that acquires and holds every landscaping business we buy.",
     blocks: [
       {
         label: "What You Own",
@@ -101,14 +67,15 @@ export const methodic = {
       },
       {
         label: "What It Gives You",
-        body: "Every business we acquire, you already own part of. The margin from running them all on one back office, one supply line, one insurance program flows up to the platform. So does the exit.",
+        body: "Every company the platform acquires, you already own part of. The margin from running them all on one back office, one supply line, one insurance program flows up to the platform. So does the exit.",
       },
       {
         label: "Why Early Wins",
-        body: "The earlier you are in, the more of the platform you hold. Deal one is the ground floor. You also get right of first refusal and priority on every future round, so you keep your seat as we grow.",
+        body: "Deal one is the ground floor. Later investors fund later deals, so your percentage adjusts as the platform grows. Your dollar return does not: each new deal comes in on terms that hold your return and stack upside on top. You also get right of first refusal and priority on every future round.",
       },
     ],
-    pullQuote: "You own the company that buys the companies.",
+    pullQuote:
+      "Your return is priced on this deal alone. Every synergy we build is upside on top.",
   },
 
   // Bios pulled from methodicventures.com. The co-founders have no published
@@ -219,10 +186,10 @@ export const macs = {
 
   yearsInBusiness: 51,
   founded: "1975",
-  peak: { revenue: "$5M", staff: "35" },
+  townsServed: "13",
 
   founderStory:
-    "Gerry McCarthy built Mac's Landscaping from the ground up in 1975. At its peak: $5M in revenue, 35 employees, and a 2.5-acre garden center. He intentionally scaled back. Now 71, ready to retire, and handing it to the right buyer for the first time in five decades.",
+    "Gerry McCarthy built Mac's Landscaping from the ground up in 1975 and deliberately kept it small. Now 71, ready to retire, and handing it to the right buyer for the first time in five decades.",
 
   // The moat, as tight bullets. lead is emphasized, body follows (no em-dashes).
   moatBullets: [
@@ -257,29 +224,31 @@ export const macs = {
   recurringAccounts: 55,
 
   financials: {
-    revenueAvg: 848000, // 3-year average, 2022 to 2024
-    revenueAvgLabel: "3-Year Avg Revenue",
+    revenueAvg: 847000, // 4-year average, 2022 to 2025 (matches the bars shown)
+    revenueAvgLabel: "4-Year Avg Revenue",
     revenueYears: [
       { year: 2022, value: 925633 },
       { year: 2023, value: 853706 },
       { year: 2024, value: 763688 },
+      { year: 2025, value: 846779 }, // full-year books, +11% vs 2024
     ],
     sdeEstimate: 120000, // conservative estimate, EDIT ME
     sdeLabel: "SDE (in diligence)",
     recurringLabel: "Recurring Accounts",
     // Two small callout notes beneath the stat row.
     notes: [
-      "Revenue decline reflects an owner-driven downscale, not market loss. Gerry stopped selling.",
+      "The decline was an owner-driven downscale, not market loss. Gerry stopped selling. Revenue rebounded 11% in 2025 anyway.",
       "2026 YTD: $449K through June on a record snow season, the strongest stretch in the data.",
     ],
+    // The peak, as an emphasized closing line under the financials. It sits
+    // here on purpose: right after the reader sees today's revenue.
+    peakLine:
+      "At its peak, this business ran $5M in revenue with 35 employees. The brand that did it is intact.",
   },
-
-  setupLine: "The brand is intact. The sales muscle atrophied. That's the opportunity.",
 } as const;
 
 export const valueCreation = {
   kicker: "The Value-Creation Plan",
-  title: "From a coasting shop to a run business.",
   intro:
     "Concrete levers, each grounded in the company's own evidence. This is what modernizing from the back end looks like in one business.",
   levers: [
@@ -301,15 +270,19 @@ export const valueCreation = {
     },
     {
       heading: "Right-size overhead",
-      body: "An admin structure built for a $5M company, running at $800K.",
+      body: "An admin structure built for a $5M company, running at $850K.",
     },
     {
       heading: "Install the operator",
-      body: "Tiffany Sergi from day one. Keith McCarthy stays as crew and snow lead.",
+      body: "Tiffany Sergi from day one, running the business with full P&L ownership.",
+    },
+    {
+      heading: "Keep the GM",
+      body: "Keith McCarthy, 30 years in the business, stays on to lead the crews and the snow operation. The relationships and route knowledge stay with the company.",
     },
   ],
   continuity:
-    "The seller stays on in an advisory role for 3 to 6 months, then exits. Keith McCarthy, the long-time general manager, stays on as crew and snow lead through the transition.",
+    "Keith McCarthy, the founder's son and 30-year general manager, stays on to lead the crews and the snow operation. The customer relationships and crew loyalty stay with the business. The seller stays on in an advisory role for 3 to 6 months, then exits.",
 
   // Optional GM pull quote. Only rendered when gmQuoteConfirmed is true.
   // Attributed to "the general manager," never by name.
@@ -324,16 +297,16 @@ export const valueCreation = {
 
 export const empire = {
   kicker: "The Empire",
-  title: "Mac's is node one.",
+  title: "Mac's is the start.",
   intro: "Zoom out. One business proves the machine. The plan is a platform.",
   steps: [
     {
       label: "Anchor",
-      body: "Landscaping is the beachhead. Prove the acquisition and operating playbook here.",
+      body: "Mac's is the beachhead. Prove the acquisition and operating playbook here.",
     },
     {
       label: "Rollup",
-      body: "Add adjacent essential-service trades from the buy box, one disciplined deal at a time.",
+      body: "Add established landscaping companies, one disciplined deal at a time.",
     },
     {
       label: "Consolidate",
@@ -341,11 +314,11 @@ export const empire = {
     },
     {
       label: "Cross-sell",
-      body: "One trusted brand serving a shared customer base across multiple trades.",
+      body: "One trusted brand serving a shared customer base across every service line: maintenance, construction, irrigation, and snow.",
     },
     {
       label: "Exit",
-      body: "A consolidated essential-service platform positioned for a private-equity exit.",
+      body: "A consolidated landscaping platform positioned for a private-equity exit.",
     },
   ],
   marketProof:
@@ -365,10 +338,10 @@ export const empire = {
     "One brand",
   ],
   nodes: [
-    { label: "Mac's Landscaping", tag: "Node one, acquired 2026", status: "owned" },
-    { label: "Acq #2", tag: "Future", status: "future" },
-    { label: "Acq #3", tag: "Future", status: "future" },
-    { label: "Acq #4", tag: "Future", status: "future" },
+    { label: "Mac's Landscaping", tag: "Deal one, 2026", status: "owned" },
+    { label: "Deal two", tag: "Future", status: "future" },
+    { label: "Deal three", tag: "Future", status: "future" },
+    { label: "Deal four", tag: "Future", status: "future" },
   ],
   diagramOutcome:
     "Each business runs leaner on one back office, one supply line, one brand. Margin no single company could build alone shows up across all of them, and compounds with every acquisition.",
@@ -445,7 +418,7 @@ export const advisorsSection = {
 
 export const ask = {
   kicker: "The Ask",
-  title: "Deal one, on the table.",
+  title: "Deal one is open.",
   total: 500000,
   purchase: 400000,
   workingCapital: 100000,
@@ -453,13 +426,34 @@ export const ask = {
   founderEach: 50000,
   committedPct: 30,
   breakdown: [
-    { label: "To acquire the business", value: 400000 },
+    {
+      label: "To acquire the business",
+      value: 400000,
+      note: "A price anchored to the hard assets alone. The 51-year brand, the recurring accounts, and the crew come with it.",
+    },
     { label: "Working capital", value: 100000 },
   ],
+  // The economics. Pref is designed; the 55% split is a PLACEHOLDER pending
+  // the final fund agreement. Update figure/body together when terms land.
+  terms: {
+    kicker: "The Terms",
+    items: [
+      {
+        figure: "8%",
+        label: "Preferred return, paid first",
+        body: "Investors earn 8% annually on invested capital before Methodic takes anything.",
+      },
+      {
+        figure: "55%",
+        label: "Investor profit split",
+        body: "After the preferred return is paid, investors receive 55% of distributable profits.",
+      },
+    ],
+    footnote: "Working terms, finalized in the fund agreement.",
+  },
   skinInTheGame:
     "The three partners have each committed $50K. $150K total, already in. Founders first.",
-  rofrReprise:
-    "Original investors receive right of first refusal and priority allocation on every future Methodic deal. This is the reason to commit on deal one.",
+  rofrReprise: "Preserving What Works. Unlocking What's Possible.",
   ctaHeading: "Express interest.",
   ctaBody: "A short conversation is the next step. Reach out and we will walk you through the deal.",
   contact: "[CONTACT DETAILS PLACEHOLDER]",
@@ -473,7 +467,6 @@ export const sections = [
   { id: "shah", label: "Shah" },
   { id: "advisors", label: "Advisors" },
   { id: "thesis", label: "Opportunity" },
-  { id: "buy-box", label: "Buy Box" },
   { id: "investor-deal", label: "The Deal" },
   { id: "macs", label: "Mac's" },
   { id: "value-creation", label: "Value Plan" },
