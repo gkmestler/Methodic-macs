@@ -76,6 +76,57 @@ export default function Ask() {
           </div>
         </Reveal>
 
+        {/* The return at different free-cash-flow levels */}
+        <Reveal>
+          <div className="mt-20">
+            <p className="kicker text-deepblue">{ask.returns.kicker}</p>
+            <p className="mt-4 max-w-2xl leading-relaxed text-paper/75">
+              {ask.returns.intro}
+            </p>
+            <div className="mt-8 border-y border-paper/15">
+              <div className="hidden grid-cols-3 gap-6 py-3 sm:grid">
+                {ask.returns.columns.map((c) => (
+                  <p key={c} className="kicker text-paper/50">
+                    {c}
+                  </p>
+                ))}
+              </div>
+              <div className="divide-y divide-paper/10">
+                {ask.returns.rows.map((r) => (
+                  <div
+                    key={r.fcf}
+                    className="grid grid-cols-3 items-center gap-6 py-5"
+                  >
+                    <p className="font-display text-2xl font-semibold sm:text-3xl">
+                      {r.fcf}
+                    </p>
+                    <p className="font-display text-2xl text-paper/80 sm:text-3xl">
+                      {r.investor}
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <p
+                        className={`font-display text-2xl font-semibold sm:text-3xl ${
+                          "plan" in r ? "text-deepblue" : ""
+                        }`}
+                      >
+                        {r.pct}
+                      </p>
+                      {"plan" in r && (
+                        <span className="kicker hidden text-deepblue md:inline">
+                          {ask.returns.planTag}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="mt-6 max-w-2xl text-sm text-paper/45">
+              {ask.returns.footnote}
+            </p>
+          </div>
+        </Reveal>
+
         {/* Skin in the game, emphasized beat with animated progress */}
         <Reveal>
           <div className="mt-20 border border-paper/15 p-8 sm:p-12">

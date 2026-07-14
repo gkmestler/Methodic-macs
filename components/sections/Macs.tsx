@@ -141,7 +141,10 @@ export default function Macs() {
 
           {/* Three-year revenue bars */}
           <Reveal delay={0.05}>
-            <RevenueBars years={financials.revenueYears} />
+            <div className="grid gap-x-16 lg:grid-cols-2">
+              <Bars title="Revenue by year" years={financials.revenueYears} />
+              <Bars title="SDE by year" years={financials.sdeYears} />
+            </div>
           </Reveal>
 
           {/* Stat row beneath the bars */}
@@ -225,26 +228,32 @@ function Stat({ label, value }: { label: string; value: string }) {
 }
 
 // Near-invisible typeset bar comparison. Hairline baseline only, no gridlines.
-function RevenueBars({
+// YTD bars render lighter so a partial year never reads as a down year.
+function Bars({
+  title,
   years,
 }: {
-  years: readonly { year: number; value: number }[];
+  title: string;
+  years: readonly { year: number; value: number; ytd?: boolean }[];
 }) {
   const max = Math.max(...years.map((y) => y.value));
   return (
     <div className="mt-12">
-      <p className="kicker text-slate">Revenue by year</p>
-      <div className="mt-6 flex items-end gap-6 border-b border-paper/20 pb-0 sm:gap-12">
+      <p className="kicker text-slate">{title}</p>
+      <div className="mt-6 flex items-end gap-4 border-b border-paper/20 pb-0 sm:gap-8">
         {years.map((y) => {
           const pct = Math.round((y.value / max) * 100);
           return (
             <div key={y.year} className="flex flex-1 flex-col items-center">
               <span className="mb-2 text-sm text-paper/80">{usdShort(y.value)}</span>
               <div
-                className="w-full bg-deepblue/70"
+                className={`w-full ${y.ytd ? "bg-deepblue/35" : "bg-deepblue/70"}`}
                 style={{ height: `${Math.max(pct * 1.8, 24)}px` }}
               />
-              <span className="mt-3 text-sm text-paper/60">{y.year}</span>
+              <span className="mt-3 whitespace-nowrap text-sm text-paper/60">
+                {y.year}
+                {y.ytd ? " YTD" : ""}
+              </span>
             </div>
           );
         })}

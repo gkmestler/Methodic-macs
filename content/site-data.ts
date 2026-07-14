@@ -231,9 +231,17 @@ export const macs = {
       { year: 2023, value: 853706 },
       { year: 2024, value: 763688 },
       { year: 2025, value: 846779 }, // full-year books, +11% vs 2024
+      { year: 2026, value: 449140, ytd: true }, // through June
     ],
-    sdeEstimate: 120000, // conservative estimate, EDIT ME
-    sdeLabel: "SDE (in diligence)",
+    // SDE by year (Logan, 2026-07-13). 2026 is through June.
+    sdeYears: [
+      { year: 2023, value: 132000 },
+      { year: 2024, value: 128000 },
+      { year: 2025, value: 160000 },
+      { year: 2026, value: 119000, ytd: true },
+    ],
+    sdeEstimate: 140000, // avg of sdeYears 2023-2025 (132+128+160)/3
+    sdeLabel: "3-Year Avg SDE (in diligence)",
     recurringLabel: "Recurring Accounts",
     // Two small callout notes beneath the stat row.
     notes: [
@@ -433,8 +441,9 @@ export const ask = {
     },
     { label: "Working capital", value: 100000 },
   ],
-  // The economics. Pref is designed; the 55% split is a PLACEHOLDER pending
-  // the final fund agreement. Update figure/body together when terms land.
+  // The economics. Pref is designed; the 40% split is a PLACEHOLDER pending
+  // the final fund agreement. Update figure/body together when terms land,
+  // and recompute the returns table below (pref $40K first, then 40% of rest).
   terms: {
     kicker: "The Terms",
     items: [
@@ -444,12 +453,30 @@ export const ask = {
         body: "Investors earn 8% annually on invested capital before Methodic takes anything.",
       },
       {
-        figure: "55%",
+        figure: "40%",
         label: "Investor profit split",
-        body: "After the preferred return is paid, investors receive 55% of distributable profits.",
+        body: "After the preferred return is paid, investors receive 40% of distributable profits.",
       },
     ],
     footnote: "Working terms, finalized in the fund agreement.",
+  },
+  // The return at different free-cash-flow levels. Each row: pref $40K paid
+  // first, then 40% of the remainder, on the full $500K raise. Recompute if
+  // the raise, pref, or split changes. The $200K row is the 24-month plan.
+  returns: {
+    kicker: "The Return",
+    intro:
+      "What the terms pay at different levels of annual free cash flow. The value plan's target is $200K within 24 months.",
+    columns: ["Free cash flow", "Cash to investors", "Your annual return"],
+    rows: [
+      { fcf: "$100K", investor: "$64K", pct: "13%" },
+      { fcf: "$200K", investor: "$104K", pct: "21%", plan: true },
+      { fcf: "$300K", investor: "$144K", pct: "29%" },
+      { fcf: "$400K", investor: "$184K", pct: "37%" },
+    ],
+    planTag: "The 24-month target",
+    footnote:
+      "Cash to investors each year free cash flow holds at that level: the 8% preferred return first, then 40% of what remains. Illustrative, on the full $500K raise.",
   },
   skinInTheGame:
     "The three partners have each committed $50K. $150K total, already in. Founders first.",
