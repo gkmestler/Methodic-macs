@@ -248,6 +248,14 @@ export const macs = {
       "The decline was an owner-driven downscale, not market loss. Gerry stopped selling. Revenue rebounded 11% in 2025 anyway.",
       "2026 YTD: $449K through June on a record snow season, the strongest stretch in the data.",
     ],
+    // Overhead stat: ~60% = 3-yr avg total expense / total income from the
+    // books (FY23 64.5%, FY24 59.8%, FY25 54.1%). GM ~58% avg backs the
+    // "healthy" claim but is deliberately not shown as a number.
+    overhead: {
+      figure: "~60%",
+      label: "Overhead as % of sales today",
+      body: "The gross margin underneath is healthy. The overhead on top is still sized for a much larger company.",
+    },
     // The peak, as an emphasized closing line under the financials. It sits
     // here on purpose: right after the reader sees today's revenue.
     peakLine:

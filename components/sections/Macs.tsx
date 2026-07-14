@@ -192,6 +192,23 @@ export default function Macs() {
             ))}
           </div>
 
+          {/* Overhead stat: the operating-leverage setup */}
+          <Reveal>
+            <div className="mt-14 grid gap-6 border-t border-paper/15 pt-10 md:grid-cols-[auto_1fr] md:items-end md:gap-14">
+              <div>
+                <p className="font-display text-5xl font-semibold text-paper sm:text-6xl">
+                  {financials.overhead.figure}
+                </p>
+                <p className="mt-3 kicker text-paper/70">
+                  {financials.overhead.label}
+                </p>
+              </div>
+              <p className="max-w-xl leading-relaxed text-paper/75 md:pb-1">
+                {financials.overhead.body}
+              </p>
+            </div>
+          </Reveal>
+
           {/* The peak, emphasized: proof of ceiling right after today's numbers */}
           <Reveal>
             <p className="mt-16 max-w-3xl font-display text-2xl leading-snug text-paper sm:text-3xl">
