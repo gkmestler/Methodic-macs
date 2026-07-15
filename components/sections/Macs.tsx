@@ -63,13 +63,11 @@ export default function Macs() {
           </Reveal>
           <div>
             <Reveal>
-              <p className="kicker text-slate">
-                {macs.sellerName}, {macs.sellerRole}
-              </p>
+              <p className="kicker text-slate">{macs.sellerRole}</p>
             </Reveal>
             <Reveal delay={0.05}>
-              <h3 className="mt-4 font-display text-2xl font-semibold leading-snug sm:text-3xl">
-                A 51-year institution, built and deliberately kept small.
+              <h3 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">
+                {macs.sellerName}
               </h3>
             </Reveal>
             <Reveal delay={0.1}>
@@ -82,8 +80,8 @@ export default function Macs() {
                 <Stat label="Founded" value={macs.founded} />
                 <Stat label="Towns served" value={macs.townsServed} />
                 <Stat
-                  label="Maintenance accounts"
-                  value={String(macs.recurringAccounts)}
+                  label="Years in operation"
+                  value={String(macs.yearsInBusiness)}
                 />
               </div>
             </Reveal>

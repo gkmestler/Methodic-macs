@@ -56,6 +56,64 @@ export const methodic = {
     ],
   },
 
+  // Section 3. The Market. Why landscaping is the category we chose first:
+  // large, essential, growing, and owned by no one. All figures trace to
+  // IBISWorld (Landscaping Services, US and Massachusetts), 2025–2026.
+  market: {
+    kicker: "The Market",
+    title: "A $189 Billion Market, Owned by No One",
+    titleAccent: "Owned by No One", // rendered in Deep Blue
+    intro:
+      "For all its scale, landscaping has no dominant owner. It is one of the largest essential-service categories in the country: recurring, recession-resistant, and impossible to offshore. It is also one of the most fragmented markets in America.",
+
+    // The fragmentation argument, the reason a roll-up works here. Folds in the
+    // national business count so the market-size slide never has to repeat it.
+    fragmentation: {
+      stat: "< 2%",
+      statLabel: "held by the largest company in the country",
+      body:
+        "With more than 550,000 landscaping businesses nationwide, no one owns this market. BrightView, the country's largest at roughly $3B in revenue, is the biggest player, yet the fifty largest firms combined still hold only about a fifth of it. Everything else belongs to owner-operators like Gerry: thousands of durable, profitable businesses with no obvious buyer.",
+    },
+
+    // TAM / SAM / SOM as strictly nested circles, each fully inside the next,
+    // sharing a bottom tangent. Massachusetts sits between the region and our
+    // SOM as its own highlighted circle. It is roughly half of the New England
+    // SAM and our entry point. Radii are illustrative for hierarchy; the figures
+    // carry the real proportions.
+    marketSize: {
+      heading: "Landscaping Market Size",
+      rings: [
+        {
+          tag: "TAM",
+          eyebrow: "TAM · United States",
+          figure: "$188.8B",
+          body: "The entire U.S. landscaping-services market: every service line, residential and commercial.",
+        },
+        {
+          tag: "SAM",
+          eyebrow: "SAM · New England",
+          figure: "~$14B",
+          body: "The regional market we can realistically serve. Massachusetts alone is roughly half of it.",
+        },
+        {
+          tag: "MASS.",
+          eyebrow: "Massachusetts · Our beachhead",
+          figure: "$6.8B",
+          body: "29,325 landscaping businesses, the largest market in New England and roughly half of our regional SAM.",
+          highlight: true,
+        },
+        {
+          tag: "SOM",
+          eyebrow: "SOM · 5–7 year target",
+          figure: "$50M",
+          body: "The revenue we aim to build through disciplined acquisition, well under 1% of the region.",
+        },
+      ],
+      source:
+        "Sources: IBISWorld Landscaping Services (United States and Massachusetts), 2025. New England market size is an internal estimate, with Massachusetts at ~46% of the region by population.",
+    },
+  },
+
   investorDeal: {
     kicker: "The Investor Deal",
     lead:
@@ -304,7 +362,7 @@ export const valueCreation = {
 } as const;
 
 export const empire = {
-  kicker: "The Empire",
+  kicker: "The Vision",
   title: "Mac's is the start.",
   intro: "Zoom out. One business proves the machine. The plan is a platform.",
   steps: [
@@ -353,10 +411,6 @@ export const empire = {
   ],
   diagramOutcome:
     "Each business runs leaner on one back office, one supply line, one brand. Margin no single company could build alone shows up across all of them, and compounds with every acquisition.",
-  diagramLegend: {
-    owned: "solid means owned today",
-    dashed: "dashed means pipeline",
-  },
 } as const;
 
 export const team = {
@@ -370,7 +424,7 @@ export const team = {
   groupPhotoCaption: "Gavin Mestler, Logan Mestler, and Dean Farber",
   // Shared description shown under the three managing partner cards.
   partnersDescription:
-    "Gavin Mestler, Logan Mestler, and Dean Farber are the co-founding partners of Methodic Ventures. Together they have raised over $420K across prior ventures and built businesses generating more than $1M in combined revenue. All three are members of Babson College's eTower, one of the country's leading institutional entrepreneurship communities.",
+    "Gavin Mestler, Logan Mestler, and Dean Farber are the co-founding partners of Methodic Ventures. Together they have raised over $420K across prior ventures and built businesses generating more than $1M in combined revenue. All three are members of Babson College's eTower, one of the country's leading entrepreneurship communities.",
   // Backed-by note and logo shown directly beneath the partners description.
   eTowerNote:
     "Methodic is backed by eTower, an elite entrepreneurship community founded at Babson College, with alumni that have built companies valued at over $3 billion.",
@@ -494,9 +548,10 @@ export const sections = [
   { id: "shah", label: "Shah" },
   { id: "advisors", label: "Advisors" },
   { id: "thesis", label: "Opportunity" },
+  { id: "market", label: "The Market" },
   { id: "investor-deal", label: "The Deal" },
   { id: "macs", label: "Mac's" },
   { id: "value-creation", label: "Value Plan" },
-  { id: "empire", label: "The Empire" },
+  { id: "empire", label: "The Vision" },
   { id: "ask", label: "The Ask" },
 ] as const;
