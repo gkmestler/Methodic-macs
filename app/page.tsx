@@ -11,6 +11,7 @@ import Thesis from "@/components/sections/Thesis";
 import InvestorDeal from "@/components/sections/InvestorDeal";
 import Macs from "@/components/sections/Macs";
 import ValueCreation from "@/components/sections/ValueCreation";
+import Market from "@/components/sections/Market";
 import Empire from "@/components/sections/Empire";
 import Ask from "@/components/sections/Ask";
 
@@ -28,6 +29,7 @@ export default function Home() {
         <InvestorDeal />
         <Macs />
         <ValueCreation />
+        <Market />
         <Empire />
         <Ask />
       </main>

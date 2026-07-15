@@ -243,10 +243,9 @@ export const macs = {
     sdeEstimate: 140000, // avg of sdeYears 2023-2025 (132+128+160)/3
     sdeLabel: "3-Year Avg SDE (in diligence)",
     recurringLabel: "Recurring Accounts",
-    // Two small callout notes beneath the stat row.
+    // Small callout notes beneath the stat row.
     notes: [
-      "The decline was an owner-driven downscale, not market loss. Gerry stopped selling. Revenue rebounded 11% in 2025 anyway.",
-      "2026 YTD: $449K through June on a record snow season, the strongest stretch in the data.",
+      "The decline was an owner-driven downscale, not market loss. Gerry stopped selling.",
     ],
     // Overhead stat: ~60% = 3-yr avg total expense / total income from the
     // books (FY23 64.5%, FY24 59.8%, FY25 54.1%). GM ~58% avg backs the
@@ -311,6 +310,57 @@ export const valueCreation = {
   gmStaysThroughTransition: true,
 } as const;
 
+// Commercial whitespace, from the MA assessor-records analysis
+// (wiki: macs-landscaping-commercial-opportunity, 2026-07-14).
+export const market = {
+  kicker: "The Local Market",
+  stats: [
+    {
+      figure: "~2,300",
+      label: "serviceable commercial properties in the towns Mac's already serves",
+    },
+    {
+      figure: "~950",
+      label:
+        "of them are mid-size office and industrial parks (2 to 10 acres), the class that pays $25 to $40K a year",
+    },
+    {
+      figure: "<1%",
+      label: "is Mac's share of that universe today, at roughly 20 commercial accounts",
+    },
+    {
+      figure: "~25",
+      label:
+        "local companies are big enough to compete for this work. That is 90+ serviceable properties per capable competitor",
+    },
+  ],
+  // The chain: contracts -> revenue -> free cash flow -> return. The 21%
+  // must match the returns table in the ask ($40K pref + 40% split, $500K).
+  chain: {
+    kicker: "What just 16 contracts turns into",
+    steps: [
+      {
+        figure: "16",
+        label: "mid-size contracts. Just 1.7% of the 950 target properties",
+      },
+      {
+        figure: "~$400K",
+        label: "added annual revenue at market rates of $25 to $40K per contract",
+      },
+      {
+        figure: "~$200K",
+        label: "annual free cash flow",
+      },
+      {
+        figure: "21%",
+        label: "annual return to investors, on the terms in the ask",
+      },
+    ],
+  },
+  footnote:
+    "Commercial whitespace in Mac's service area, computed from Massachusetts assessor parcel data (MassGIS / DLS): commercial and industrial parcels on half-acre-plus lots with real grounds to maintain.",
+} as const;
+
 export const empire = {
   kicker: "The Empire",
   title: "Mac's is the start.",
@@ -318,7 +368,7 @@ export const empire = {
   steps: [
     {
       label: "Anchor",
-      body: "Mac's is the beachhead. Prove the acquisition and operating playbook here.",
+      body: "Mac's is first. We are all in on making it succeed. Everything that follows builds on it.",
     },
     {
       label: "Rollup",
@@ -445,7 +495,7 @@ export const ask = {
     {
       label: "To acquire the business",
       value: 400000,
-      note: "A price anchored to the hard assets alone. The 51-year brand, the recurring accounts, and the crew come with it.",
+      note: "A price anchored to the assets alone.",
     },
     { label: "Working capital", value: 100000 },
   ],
@@ -474,7 +524,7 @@ export const ask = {
   returns: {
     kicker: "The Return",
     intro:
-      "What the terms pay at different levels of annual free cash flow. The value plan's target is $200K within 24 months.",
+      "What the terms pay at different levels of annual free cash flow.",
     columns: ["Free cash flow", "Cash to investors", "Your annual return"],
     rows: [
       { fcf: "$100K", investor: "$64K", pct: "13%" },
@@ -494,6 +544,58 @@ export const ask = {
   contact: "[CONTACT DETAILS PLACEHOLDER]",
 } as const;
 
+// PRESERVED FROM A PARALLEL EDITING SESSION (2026-07-14), not currently
+// rendered. Industry-level market framing ($150B, Why Massachusetts) that
+// collided with the whitespace `market` section above. Rendered by
+// components/sections/Industry.tsx if wired into app/page.tsx.
+export const industry = {
+  kicker: "The Market",
+  title: "A $150 Billion Market. Still Family-Owned.",
+  titleAccent: "Still Family-Owned.",
+  intro:
+    "The U.S. landscaping industry generates over $150 billion in annual revenue. Massachusetts is one of its most defensible pockets: dense affluent suburbs, a four-season climate, and a commercial sector that shuts out new entrants with insurance and licensing requirements most small operators can never meet.",
+  stats: [
+    {
+      figure: "$150B+",
+      label: "U.S. landscaping industry annual revenue",
+    },
+    {
+      figure: "500K+",
+      label: "businesses in the industry, almost entirely independently owned",
+    },
+    {
+      figure: "90%+",
+      label: "of landscaping businesses generate under $1M in annual revenue",
+    },
+    {
+      figure: "$3–4M",
+      label:
+        "commercial liability insurance required to compete for commercial accounts — the barrier most operators never clear",
+    },
+  ],
+  whyMa: {
+    heading: "Why Massachusetts",
+    points: [
+      {
+        lead: "Affluent suburban density",
+        body: "The Boston metro ring — Burlington, Winchester, Wellesley, Weston — is one of the highest residential property value markets in the country. Homeowners spend proportionally more on professional maintenance.",
+      },
+      {
+        lead: "Four-season revenue",
+        body: "Spring-through-fall maintenance, construction, and commercial snowplowing give established operators three distinct revenue streams. Snow carries the strongest margins and rewards incumbents who already hold commercial contracts.",
+      },
+      {
+        lead: "High barriers to new entrants",
+        body: "Commercial liability insurance, Massachusetts pesticide applicator licensing, and the capital required to field a credentialed crew make it nearly impossible to compete for commercial work without years of operating history.",
+      },
+      {
+        lead: "Consolidation is underway",
+        body: "PE-backed aggregators are already active in New England. Established operators with a recognized brand and a recurring account base are exactly what acquirers pay premiums for.",
+      },
+    ],
+  },
+} as const;
+
 // Ordered section nav (right-side dot nav on desktop, and anchors).
 export const sections = [
   { id: "hero", label: "Methodic" },
@@ -505,6 +607,7 @@ export const sections = [
   { id: "investor-deal", label: "The Deal" },
   { id: "macs", label: "Mac's" },
   { id: "value-creation", label: "Value Plan" },
+  { id: "market", label: "Local Market" },
   { id: "empire", label: "The Empire" },
   { id: "ask", label: "The Ask" },
 ] as const;
