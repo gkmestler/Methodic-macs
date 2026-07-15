@@ -300,6 +300,8 @@ export const macs = {
     ],
     sdeEstimate: 140000, // avg of sdeYears 2023-2025 (132+128+160)/3
     sdeLabel: "3-Year Avg SDE (in diligence)",
+    equipmentValue: 200000, // PLACEHOLDER pending professional appraisal
+    equipmentLabel: "Equipment & Fleet Value (est.)",
     recurringLabel: "Recurring Accounts",
     // Small callout notes beneath the stat row.
     notes: [
@@ -582,11 +584,10 @@ export const ask = {
     columns: ["Free cash flow", "Cash to investors", "Your annual return"],
     rows: [
       { fcf: "$100K", investor: "$64K", pct: "13%" },
-      { fcf: "$200K", investor: "$104K", pct: "21%", plan: true },
+      { fcf: "$200K", investor: "$104K", pct: "21%" },
       { fcf: "$300K", investor: "$144K", pct: "29%" },
       { fcf: "$400K", investor: "$184K", pct: "37%" },
     ],
-    planTag: "The 24-month target",
     footnote:
       "Cash to investors each year free cash flow holds at that level: the 8% preferred return first, then 40% of what remains. Illustrative, on the full $500K raise.",
   },

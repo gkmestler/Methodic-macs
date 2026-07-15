@@ -146,7 +146,7 @@ export default function Macs() {
           </Reveal>
 
           {/* Stat row beneath the bars */}
-          <div className="mt-16 grid gap-12 border-t border-paper/15 pt-12 md:grid-cols-3">
+          <div className="mt-16 grid gap-12 border-t border-paper/15 pt-12 md:grid-cols-4">
             <Reveal>
               <div>
                 <CountUp
@@ -176,6 +176,17 @@ export default function Macs() {
                 </p>
                 <p className="mt-3 text-sm text-paper/70">
                   {financials.recurringLabel}
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.18}>
+              <div>
+                <p className="font-display text-5xl font-semibold text-paper sm:text-6xl">
+                  ~{usdShort(financials.equipmentValue)}
+                </p>
+                <p className="mt-3 text-sm text-paper/70">
+                  {financials.equipmentLabel}
                 </p>
               </div>
             </Reveal>
