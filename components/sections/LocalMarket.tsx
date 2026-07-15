@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Section, { Kicker } from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import { market } from "@/content/site-data";
@@ -34,27 +35,30 @@ export default function LocalMarket() {
       <Reveal>
         <div className="mt-16 border-t border-slate/20 pt-10">
           <p className="kicker text-deepblue">{market.chain.kicker}</p>
-          <div className="mt-8 grid gap-10 md:grid-cols-4 md:gap-6">
+          {/* Arrows live in their own fixed-width grid columns so they sit
+              dead-center between the steps at every width. */}
+          <div className="mt-8 grid gap-10 md:grid-cols-[1fr_3rem_1fr_3rem_1fr_3rem_1fr] md:gap-0">
             {market.chain.steps.map((step, i) => (
-              <div
-                key={step.figure}
-                className={i > 0 ? "relative md:pl-9" : "relative"}
-              >
+              <Fragment key={step.figure}>
                 {i > 0 && (
                   <span
                     aria-hidden
-                    className="absolute left-0 top-2 hidden font-display text-2xl text-slate/60 md:block"
+                    className={`hidden pt-2 text-center font-display text-2xl text-slate/60 md:block md:-translate-x-10${
+                      i === 1 ? " lg:-translate-x-24" : ""
+                    }`}
                   >
                     →
                   </span>
                 )}
-                <p className="font-display text-4xl font-semibold text-ink sm:text-5xl">
-                  {step.figure}
-                </p>
-                <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink/70">
-                  {step.label}
-                </p>
-              </div>
+                <div>
+                  <p className="font-display text-4xl font-semibold text-ink sm:text-5xl">
+                    {step.figure}
+                  </p>
+                  <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink/70 md:pr-2">
+                    {step.label}
+                  </p>
+                </div>
+              </Fragment>
             ))}
           </div>
         </div>

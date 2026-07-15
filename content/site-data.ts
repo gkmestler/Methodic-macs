@@ -97,7 +97,7 @@ export const methodic = {
         },
         {
           tag: "MASS.",
-          eyebrow: "Massachusetts · Our beachhead",
+          eyebrow: "Massachusetts",
           figure: "$6.8B",
           body: "29,325 landscaping businesses, the largest market in New England and roughly half of our regional SAM.",
           highlight: true,
@@ -405,7 +405,7 @@ export const market = {
       },
       {
         figure: "~$400K",
-        label: "added annual revenue at market rates of $25 to $40K per contract",
+        label: "added annual revenue at conservative market rates of $25k per contract",
       },
       {
         figure: "~$200K",
@@ -564,7 +564,7 @@ export const ask = {
       {
         figure: "8%",
         label: "Preferred return, paid first",
-        body: "Investors earn 8% annually on invested capital before Methodic takes anything.",
+        body: "Investors earn 8% annually on invested capital, paid before Methodic takes anything, until their principal is fully returned.",
       },
       {
         figure: "40%",
