@@ -413,6 +413,51 @@ export const empire = {
     "Each business runs leaner on one back office, one supply line, one brand. Margin no single company could build alone shows up across all of them, and compounds with every acquisition.",
 } as const;
 
+// The holding-company structure. Explains the ownership stack: Methodic Ventures
+// (the firm) sits above HoldCo I: Methodic Landscaping (where investor capital
+// goes), which owns the acquisitions below it. Framed as upside, not exclusion.
+export const structure = {
+  kicker: "Our First HoldCo",
+  title: "HoldCo I: Methodic Landscaping",
+  titleAccent: "Methodic Landscaping", // rendered in Deep Blue
+  lead:
+    "This is the platform. HoldCo I: Methodic Landscaping is the first holding company we are building, and it owns every landscaping business we acquire. Methodic Ventures, the firm, sources, negotiates, and runs every deal, but your capital goes straight into this holdco. Come in now and you own a piece of the entire platform from day one, every deal we do through it, starting with Mac's.",
+
+  // Three-tier ownership diagram, top to bottom.
+  firm: {
+    name: "Methodic Ventures",
+    caption: "The firm. Sources, negotiates, and manages every deal.",
+  },
+  holdco: {
+    name: "HoldCo I: Methodic Landscaping",
+    caption: "The holding company you own. It holds every business on the platform.",
+    capitalLabel: "Investor capital",
+  },
+  assets: [
+    { label: "Mac's Landscaping", tag: "Deal one, acquired 2026", status: "owned" },
+    { label: "Future acquisitions", tag: "Added to the same holdco", status: "future" },
+  ],
+
+  // Why owning the holdco early is the winning position, hyped.
+  points: [
+    {
+      label: "Own the whole platform",
+      body: "Every business Methodic Landscaping acquires, you already own a share of. Not just Mac's, but every deal we add to the holdco.",
+    },
+    {
+      label: "The lowest basis",
+      body: "Deal one is the ground floor. You come in before the platform has scale, at the lowest basis it will ever have. Later capital funds later deals and stacks on top of what you already hold.",
+    },
+    {
+      label: "First in line",
+      body: "You get right of first refusal and priority on every future deal we bring into the holdco. As the platform grows, you have first claim on the upside.",
+    },
+  ],
+
+  closing:
+    "HoldCo I is just the beginning. One platform, every landscaping deal we do, and you own a piece of all of it from day one.",
+} as const;
+
 export const team = {
   kicker: "The Team",
   title: "Team",
@@ -440,7 +485,7 @@ export const leadership = [
     id: "tiffany",
     name: "Tiffany Sergi",
     role: "Chief Executive Officer",
-    org: "Methodic Ventures",
+    org: "Methodic Landscaping",
     photo: "/images/tiffany-sergi.png",
     imgPosition: "50% 12%",
     tagline: "She runs the businesses we buy.",
@@ -544,10 +589,11 @@ export const ask = {
 export const sections = [
   { id: "hero", label: "Methodic" },
   { id: "team", label: "Team" },
-  { id: "tiffany", label: "Tiffany" },
   { id: "shah", label: "Shah" },
   { id: "advisors", label: "Advisors" },
   { id: "thesis", label: "Opportunity" },
+  { id: "structure", label: "Structure" },
+  { id: "tiffany", label: "Tiffany" },
   { id: "market", label: "The Market" },
   { id: "investor-deal", label: "The Deal" },
   { id: "macs", label: "Mac's" },
