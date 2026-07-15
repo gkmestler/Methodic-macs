@@ -2,14 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
-import { usdShort } from "@/lib/format";
+import { usdShort, usdBillions } from "@/lib/format";
 
 // Format is a string key rather than a function so this client component can be
 // used from Server Components (functions cannot cross that boundary).
-type FormatKind = "usd" | "int" | "percent";
+type FormatKind = "usd" | "usdB" | "int" | "percent";
 
 const formatters: Record<FormatKind, (n: number) => string> = {
   usd: (n) => usdShort(n),
+  usdB: (n) => usdBillions(n),
   int: (n) => Math.round(n).toLocaleString("en-US"),
   percent: (n) => `${Math.round(n)}%`,
 };

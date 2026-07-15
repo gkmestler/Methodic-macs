@@ -210,18 +210,6 @@ export default function EmpireDiagram() {
       >
         {empire.diagramOutcome}
       </motion.p>
-
-      {/* Legend */}
-      <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs text-slate">
-        <span className="flex items-center gap-2">
-          <span className="h-3 w-3 rounded-[2px] border border-deepblue bg-deepblue/20" aria-hidden="true" />
-          {empire.diagramLegend.owned}
-        </span>
-        <span className="flex items-center gap-2">
-          <span className="h-3 w-3 rounded-[2px] border border-dashed border-slate/60" aria-hidden="true" />
-          {empire.diagramLegend.dashed}
-        </span>
-      </div>
     </div>
   );
 }

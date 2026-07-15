@@ -18,3 +18,10 @@ export function usdShort(n: number): string {
 export function usdFull(n: number): string {
   return `$${n.toLocaleString("en-US")}`;
 }
+
+// 188800000000 -> "$188.8B", 6800000000 -> "$6.8B"
+export function usdBillions(n: number): string {
+  const b = n / 1_000_000_000;
+  const str = Number.isInteger(b) ? b.toString() : b.toFixed(1);
+  return `$${str}B`;
+}

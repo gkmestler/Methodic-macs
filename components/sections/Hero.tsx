@@ -50,11 +50,10 @@ export default function Hero() {
         </motion.p>
       </div>
 
-      {/* Quiet scroll cue */}
-      <a
-        href="#thesis"
-        aria-label="Scroll to the thesis"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      {/* Quiet scroll cue (decorative, non-interactive) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <motion.span
           className="block"
@@ -82,7 +81,7 @@ export default function Hero() {
             />
           </svg>
         </motion.span>
-      </a>
+      </div>
     </section>
   );
 }
