@@ -97,7 +97,7 @@ export const methodic = {
         },
         {
           tag: "MASS.",
-          eyebrow: "Massachusetts · Our beachhead",
+          eyebrow: "Massachusetts",
           figure: "$6.8B",
           body: "29,325 landscaping businesses, the largest market in New England and roughly half of our regional SAM.",
           highlight: true,
@@ -300,12 +300,21 @@ export const macs = {
     ],
     sdeEstimate: 140000, // avg of sdeYears 2023-2025 (132+128+160)/3
     sdeLabel: "3-Year Avg SDE (in diligence)",
+    equipmentValue: 200000, // PLACEHOLDER pending professional appraisal
+    equipmentLabel: "Equipment & Fleet Value (est.)",
     recurringLabel: "Recurring Accounts",
-    // Two small callout notes beneath the stat row.
+    // Small callout notes beneath the stat row.
     notes: [
-      "The decline was an owner-driven downscale, not market loss. Gerry stopped selling. Revenue rebounded 11% in 2025 anyway.",
-      "2026 YTD: $449K through June on a record snow season, the strongest stretch in the data.",
+      "The decline was an owner-driven downscale, not market loss. Gerry stopped selling.",
     ],
+    // Overhead stat: ~60% = 3-yr avg total expense / total income from the
+    // books (FY23 64.5%, FY24 59.8%, FY25 54.1%). GM ~58% avg backs the
+    // "healthy" claim but is deliberately not shown as a number.
+    overhead: {
+      figure: "~60%",
+      label: "Overhead as % of sales today",
+      body: "The gross margin underneath is healthy. The overhead on top is still sized for a much larger company.",
+    },
     // The peak, as an emphasized closing line under the financials. It sits
     // here on purpose: right after the reader sees today's revenue.
     peakLine:
@@ -361,6 +370,57 @@ export const valueCreation = {
   gmStaysThroughTransition: true,
 } as const;
 
+// Commercial whitespace, from the MA assessor-records analysis
+// (wiki: macs-landscaping-commercial-opportunity, 2026-07-14).
+export const market = {
+  kicker: "The Local Market",
+  stats: [
+    {
+      figure: "~2,300",
+      label: "serviceable commercial properties in the towns Mac's already serves",
+    },
+    {
+      figure: "~950",
+      label:
+        "of them are mid-size office and industrial parks (2 to 10 acres), the class that pays $25 to $40K a year",
+    },
+    {
+      figure: "<1%",
+      label: "is Mac's share of that universe today, at roughly 20 commercial accounts",
+    },
+    {
+      figure: "~25",
+      label:
+        "local companies are big enough to compete for this work. That is 90+ serviceable properties per capable competitor",
+    },
+  ],
+  // The chain: contracts -> revenue -> free cash flow -> return. The 21%
+  // must match the returns table in the ask ($40K pref + 40% split, $500K).
+  chain: {
+    kicker: "What just 16 contracts turns into",
+    steps: [
+      {
+        figure: "16",
+        label: "mid-size contracts. Just 1.7% of the 950 target properties",
+      },
+      {
+        figure: "~$400K",
+        label: "added annual revenue at conservative market rates of $25k per contract",
+      },
+      {
+        figure: "~$200K",
+        label: "annual free cash flow",
+      },
+      {
+        figure: "21%",
+        label: "annual return to investors, on the terms in the ask",
+      },
+    ],
+  },
+  footnote:
+    "Commercial whitespace in Mac's service area, computed from Massachusetts assessor parcel data (MassGIS / DLS): commercial and industrial parcels on half-acre-plus lots with real grounds to maintain.",
+} as const;
+
 export const empire = {
   kicker: "The Vision",
   title: "Mac's is the start.",
@@ -368,7 +428,7 @@ export const empire = {
   steps: [
     {
       label: "Anchor",
-      body: "Mac's is the beachhead. Prove the acquisition and operating playbook here.",
+      body: "Mac's is first. We are all in on making it succeed. Everything that follows builds on it.",
     },
     {
       label: "Rollup",
@@ -536,7 +596,7 @@ export const ask = {
     {
       label: "To acquire the business",
       value: 400000,
-      note: "A price anchored to the hard assets alone. The 51-year brand, the recurring accounts, and the crew come with it.",
+      note: "A price anchored to the assets alone.",
     },
     { label: "Working capital", value: 100000 },
   ],
@@ -549,7 +609,7 @@ export const ask = {
       {
         figure: "8%",
         label: "Preferred return, paid first",
-        body: "Investors earn 8% annually on invested capital before Methodic takes anything.",
+        body: "Investors earn 8% annually on invested capital, paid before Methodic takes anything, until their principal is fully returned.",
       },
       {
         figure: "40%",
@@ -565,15 +625,14 @@ export const ask = {
   returns: {
     kicker: "The Return",
     intro:
-      "What the terms pay at different levels of annual free cash flow. The value plan's target is $200K within 24 months.",
+      "What the terms pay at different levels of annual free cash flow.",
     columns: ["Free cash flow", "Cash to investors", "Your annual return"],
     rows: [
       { fcf: "$100K", investor: "$64K", pct: "13%" },
-      { fcf: "$200K", investor: "$104K", pct: "21%", plan: true },
+      { fcf: "$200K", investor: "$104K", pct: "21%" },
       { fcf: "$300K", investor: "$144K", pct: "29%" },
       { fcf: "$400K", investor: "$184K", pct: "37%" },
     ],
-    planTag: "The 24-month target",
     footnote:
       "Cash to investors each year free cash flow holds at that level: the 8% preferred return first, then 40% of what remains. Illustrative, on the full $500K raise.",
   },
@@ -584,6 +643,7 @@ export const ask = {
   ctaBody: "A short conversation is the next step. Reach out and we will walk you through the deal.",
   contact: "[CONTACT DETAILS PLACEHOLDER]",
 } as const;
+
 
 // Ordered section nav (right-side dot nav on desktop, and anchors).
 export const sections = [
@@ -598,6 +658,7 @@ export const sections = [
   { id: "investor-deal", label: "The Deal" },
   { id: "macs", label: "Mac's" },
   { id: "value-creation", label: "Value Plan" },
+  { id: "local-market", label: "Local Market" },
   { id: "empire", label: "The Vision" },
   { id: "ask", label: "The Ask" },
 ] as const;

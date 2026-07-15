@@ -103,20 +103,9 @@ export default function Ask() {
                     <p className="font-display text-2xl text-paper/80 sm:text-3xl">
                       {r.investor}
                     </p>
-                    <div className="flex items-center gap-4">
-                      <p
-                        className={`font-display text-2xl font-semibold sm:text-3xl ${
-                          "plan" in r ? "text-deepblue" : ""
-                        }`}
-                      >
-                        {r.pct}
-                      </p>
-                      {"plan" in r && (
-                        <span className="kicker hidden text-deepblue md:inline">
-                          {ask.returns.planTag}
-                        </span>
-                      )}
-                    </div>
+                    <p className="font-display text-2xl font-semibold sm:text-3xl">
+                      {r.pct}
+                    </p>
                   </div>
                 ))}
               </div>

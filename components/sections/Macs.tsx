@@ -145,14 +145,15 @@ export default function Macs() {
             </div>
           </Reveal>
 
-          {/* Stat row beneath the bars */}
-          <div className="mt-16 grid gap-12 border-t border-paper/15 pt-12 md:grid-cols-3">
+          {/* Stat row beneath the bars. Four across on large screens; each
+              stat centered in its column so the row reads evenly spaced. */}
+          <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 border-t border-paper/15 pt-12 text-center sm:grid-cols-2 lg:grid-cols-4">
             <Reveal>
               <div>
                 <CountUp
                   value={financials.revenueAvg}
                   format="usd"
-                  className="font-display text-5xl font-semibold text-paper sm:text-6xl"
+                  className="font-display text-4xl font-semibold text-paper sm:text-5xl"
                 />
                 <p className="mt-3 text-sm text-paper/70">
                   {financials.revenueAvgLabel}
@@ -162,7 +163,7 @@ export default function Macs() {
 
             <Reveal delay={0.06}>
               <div>
-                <p className="font-display text-5xl font-semibold text-paper sm:text-6xl">
+                <p className="font-display text-4xl font-semibold text-paper sm:text-5xl">
                   ~{usdShort(financials.sdeEstimate)}
                 </p>
                 <p className="mt-3 text-sm text-paper/70">{financials.sdeLabel}</p>
@@ -171,11 +172,22 @@ export default function Macs() {
 
             <Reveal delay={0.12}>
               <div>
-                <p className="font-display text-5xl font-semibold text-paper sm:text-6xl">
+                <p className="font-display text-4xl font-semibold text-paper sm:text-5xl">
                   ~{macs.recurringAccounts}
                 </p>
                 <p className="mt-3 text-sm text-paper/70">
                   {financials.recurringLabel}
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.18}>
+              <div>
+                <p className="font-display text-4xl font-semibold text-paper sm:text-5xl">
+                  ~{usdShort(financials.equipmentValue)}
+                </p>
+                <p className="mt-3 text-sm text-paper/70">
+                  {financials.equipmentLabel}
                 </p>
               </div>
             </Reveal>
@@ -189,6 +201,23 @@ export default function Macs() {
               </Reveal>
             ))}
           </div>
+
+          {/* Overhead stat: the operating-leverage setup */}
+          <Reveal>
+            <div className="mt-14 grid gap-6 border-t border-paper/15 pt-10 md:grid-cols-[auto_1fr] md:items-end md:gap-14">
+              <div>
+                <p className="font-display text-5xl font-semibold text-paper sm:text-6xl">
+                  {financials.overhead.figure}
+                </p>
+                <p className="mt-3 kicker text-paper/70">
+                  {financials.overhead.label}
+                </p>
+              </div>
+              <p className="max-w-xl leading-relaxed text-paper/75 md:pb-1">
+                {financials.overhead.body}
+              </p>
+            </div>
+          </Reveal>
 
           {/* The peak, emphasized: proof of ceiling right after today's numbers */}
           <Reveal>

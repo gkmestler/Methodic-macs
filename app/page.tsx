@@ -13,6 +13,7 @@ import InvestorDeal from "@/components/sections/InvestorDeal";
 import Structure from "@/components/sections/Structure";
 import Macs from "@/components/sections/Macs";
 import ValueCreation from "@/components/sections/ValueCreation";
+import LocalMarket from "@/components/sections/LocalMarket";
 import Empire from "@/components/sections/Empire";
 import Ask from "@/components/sections/Ask";
 
@@ -33,6 +34,7 @@ export default function Home() {
         <InvestorDeal />
         <Macs />
         <ValueCreation />
+        <LocalMarket />
         <Empire />
         <Ask />
       </main>
