@@ -8,12 +8,10 @@ import Team from "@/components/sections/Team";
 import Leadership from "@/components/sections/Leadership";
 import Advisors from "@/components/sections/Advisors";
 import Thesis from "@/components/sections/Thesis";
-import Market from "@/components/sections/Market";
-import InvestorDeal from "@/components/sections/InvestorDeal";
 import Macs from "@/components/sections/Macs";
-import ValueCreation from "@/components/sections/ValueCreation";
 import LocalMarket from "@/components/sections/LocalMarket";
-import Empire from "@/components/sections/Empire";
+import ValueCreation from "@/components/sections/ValueCreation";
+import Offer from "@/components/sections/Offer";
 import Ask from "@/components/sections/Ask";
 
 export default function Home() {
@@ -27,12 +25,10 @@ export default function Home() {
         <Leadership />
         <Advisors />
         <Thesis />
-        <Market />
-        <InvestorDeal />
         <Macs />
-        <ValueCreation />
         <LocalMarket />
-        <Empire />
+        <ValueCreation />
+        <Offer />
         <Ask />
       </main>
       <Footer />

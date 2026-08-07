@@ -38,6 +38,33 @@ export default function ValueCreation() {
         ))}
       </div>
 
+      {/* The first 90 days: the operator's plan, condensed */}
+      <Reveal>
+        <div className="mt-16 border-t border-slate/20 pt-10">
+          <p className="kicker text-deepblue">{vc.first90.kicker}</p>
+          <p className="prose-measure mt-4 leading-relaxed text-ink/80">
+            {vc.first90.intro}
+          </p>
+          <div className="mt-10 grid gap-x-12 gap-y-9 md:grid-cols-2">
+            {vc.first90.phases.map((phase, i) => (
+              <div key={phase.heading} className="grid grid-cols-[auto_1fr] gap-5">
+                <span className="font-display text-lg text-deepblue">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="font-display text-lg font-semibold">
+                    {phase.heading}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink/70">
+                    {phase.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
       {/* Optional GM pull quote, only when confirmed for public use */}
       {vc.gmQuoteConfirmed && (
         <Reveal>

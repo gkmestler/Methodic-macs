@@ -117,23 +117,22 @@ export const methodic = {
   investorDeal: {
     kicker: "The Investor Deal",
     lead:
-      "You are not buying a landscaping company. You are buying equity in Methodic Landscaping, the platform that acquires and holds every landscaping business we buy.",
+      "You are buying equity in the company formed to acquire and operate Mac's Landscaping. One business, bought right, run well.",
     blocks: [
       {
         label: "What You Own",
-        body: "A piece of the whole platform, not a single deal. You own Methodic Landscaping, and Methodic Landscaping owns the businesses.",
+        body: "Equity in the acquiring company, which owns the business outright: the brand, the accounts, the equipment, and the crew.",
       },
       {
-        label: "What It Gives You",
-        body: "Every company the platform acquires, you already own part of. The margin from running them all on one back office, one supply line, one insurance program flows up to the platform. So does the exit.",
+        label: "How You Are Paid",
+        body: "An 8% preferred return is paid on your capital before Methodic takes anything, until your principal is fully returned. Profits beyond that split 40% to investors.",
       },
       {
-        label: "Why Early Wins",
-        body: "Deal one is the ground floor. Later investors fund later deals, so your percentage adjusts as the platform grows. Your dollar return does not: each new deal comes in on terms that hold your return and stack upside on top. You also get right of first refusal and priority on every future round.",
+        label: "First Look at What's Next",
+        body: "Investors in this deal receive right of first refusal and priority allocation on future Methodic acquisitions.",
       },
     ],
-    pullQuote:
-      "Your return is priced on this deal alone. Every synergy we build is upside on top.",
+    pullQuote: "Investors are paid first. Methodic earns only when you do.",
   },
 
   // Bios pulled from methodicventures.com. The co-founders have no published
@@ -229,7 +228,7 @@ export const methodic = {
 } as const;
 
 export const macs = {
-  kicker: "Deal One",
+  kicker: "The Deal",
   name: "Mac's Landscaping",
   logo: "/logos/macs-landscaping-logo.png", // Mac's own brand mark (1536x1024)
   openerSubline: "51 years. 13 towns. Never been sold.",
@@ -356,8 +355,41 @@ export const valueCreation = {
       body: "Keith McCarthy, 30 years in the business, stays on to lead the crews and the snow operation. The relationships and route knowledge stay with the company.",
     },
   ],
+  // The operator's first-90-days plan, condensed from Tiffany's full document
+  // (wiki: tiffany-90-day-plan, 2026-08-04). Phases overlap by design.
+  first90: {
+    kicker: "The First 90 Days",
+    intro: "Tiffany's operating plan from day one.",
+    phases: [
+      {
+        heading: "Listen, learn, assess",
+        body: "Individual meetings with every employee. Time in the field with the crews. Every contract, account, process, and the P&L reviewed before any significant change. An opportunity log of upsells and underpriced accounts starts on day one.",
+      },
+      {
+        heading: "Set the operating rhythm",
+        body: "Weekly operations and management meetings with a scorecard, an issues list, and measurable KPIs: revenue, gross margin by service line, labor efficiency, retention, and pipeline.",
+      },
+      {
+        heading: "Strengthen the processes",
+        body: "Document the core processes. Keep and reinforce what works. Change only what improves efficiency, accountability, customer experience, or profitability.",
+      },
+      {
+        heading: "Review every dollar",
+        body: "A line-by-line P&L review with budget-versus-actual tracking by service line: where margin is made, where it leaks, and what pricing should be.",
+      },
+      {
+        heading: "Grow the existing book",
+        body: "An upsell and enhancement pipeline built from contract reviews and field observation, before chasing new customers.",
+      },
+      {
+        heading: "Build the commercial engine",
+        body: "A target-property market report, a working CRM, and direct outreach. The goal is a measurable, repeatable sales pipeline that outlives the first 90 days.",
+      },
+    ],
+  },
+
   continuity:
-    "Keith McCarthy, the founder's son and 30-year general manager, stays on to lead the crews and the snow operation. The customer relationships and crew loyalty stay with the business. The seller stays on in an advisory role for 3 to 6 months, then exits.",
+    "Keith McCarthy, the founder's son and 30-year general manager, stays on to lead the crews and the snow operation. The customer relationships and crew loyalty stay with the business. The seller works alongside us full-time for the first two months, advises through the third, and stays on call beyond that.",
 
   // Optional GM pull quote. Only rendered when gmQuoteConfirmed is true.
   // Attributed to "the general manager," never by name.
@@ -368,6 +400,34 @@ export const valueCreation = {
 
   // Crew continuity confirm flag (Section 6 of the brief). Confirmed: Keith stays.
   gmStaysThroughTransition: true,
+} as const;
+
+// The offer to the seller, condensed for investors. DRAFT: cash at close is
+// the appraised equipment value and stays blank until the appraisal lands.
+// Terms summarized from the LOI (v15.6, sent 2026-08-01).
+export const offer = {
+  kicker: "The Offer",
+  intro:
+    "How we are buying Mac's. The structure prices the business off its verified assets and keeps the seller invested in the outcome.",
+  items: [
+    {
+      figure: "$—",
+      label: "Cash at close",
+      body: "The appraised value of the equipment and fleet, set by an independent appraiser. Filled in when the appraisal is complete.",
+    },
+    {
+      figure: "$125K",
+      label: "Earnout",
+      body: "Earned over the first year against milestones: a completed transition, collections, key employees staying on, and maintenance accounts retained.",
+    },
+    {
+      figure: "5%",
+      label: "Seller profits interest",
+      body: "Gerry keeps five percent of distributable profits and five percent of any increase in value at a sale.",
+    },
+  ],
+  footnote:
+    "Draft terms, summarized from our letter of intent. Final numbers are set at signing and appraisal.",
 } as const;
 
 // Commercial whitespace, from the MA assessor-records analysis
@@ -382,7 +442,7 @@ export const market = {
     {
       figure: "~950",
       label:
-        "of them are mid-size office and industrial parks (2 to 10 acres), the class that pays $25 to $40K a year",
+        "of them are mid-size office and industrial parks (2 to 10 acres), the class that pays $25K to $40K a year",
     },
     {
       figure: "<1%",
@@ -503,7 +563,7 @@ export const leadership = [
     org: "Methodic Ventures",
     photo: "/images/tiffany-sergi.png",
     imgPosition: "50% 12%",
-    tagline: "She runs the businesses we buy.",
+    tagline: "She runs the business we buy.",
     bio: [
       "COO/CEO with 12+ years of experience scaling service-based businesses. At Landscapes by D&J, she grew revenue from $2M to $5M+ while increasing profitability.",
       "Managed 60+ employees at peak season with full P&L ownership, built an 8-person leadership team with defined KPIs, and implemented ERP, CRM, and scheduling systems to drive operational efficiency at scale.",
@@ -540,7 +600,7 @@ export const advisorsSection = {
 
 export const ask = {
   kicker: "The Ask",
-  title: "Deal one is open.",
+  title: "The deal is open.",
   total: 500000,
   purchase: 400000,
   workingCapital: 100000,
@@ -550,9 +610,10 @@ export const ask = {
   breakdown: [
     {
       label: "To acquire the business",
-      value: 400000,
+      value: 370000,
       note: "A price anchored to the assets alone.",
     },
+    { label: "Due diligence costs", value: 30000 },
     { label: "Working capital", value: 100000 },
   ],
   // The economics. Pref is designed; the 40% split is a PLACEHOLDER pending
@@ -572,7 +633,7 @@ export const ask = {
         body: "After the preferred return is paid, investors receive 40% of distributable profits.",
       },
     ],
-    footnote: "Working terms, finalized in the fund agreement.",
+    footnote: "Working terms, finalized in the operating agreement.",
   },
   // The return at different free-cash-flow levels. Each row: pref $40K paid
   // first, then 40% of the remainder, on the full $500K raise. Recompute if
@@ -608,11 +669,9 @@ export const sections = [
   { id: "shah", label: "Shah" },
   { id: "advisors", label: "Advisors" },
   { id: "thesis", label: "Opportunity" },
-  { id: "market", label: "The Market" },
-  { id: "investor-deal", label: "The Deal" },
   { id: "macs", label: "Mac's" },
-  { id: "value-creation", label: "Value Plan" },
   { id: "local-market", label: "Local Market" },
-  { id: "empire", label: "The Vision" },
+  { id: "value-creation", label: "Value Plan" },
+  { id: "offer", label: "The Offer" },
   { id: "ask", label: "The Ask" },
 ] as const;

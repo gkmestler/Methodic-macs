@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import { Kicker } from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
@@ -9,7 +8,6 @@ import { usdShort } from "@/lib/format";
 
 // Section 9. The Ask. The raise, skin in the game, ROFR reprise, single CTA.
 export default function Ask() {
-  const reduce = useReducedMotion();
 
   return (
     <section id="ask" className="bg-ink text-paper">
@@ -24,7 +22,7 @@ export default function Ask() {
         </Reveal>
 
         {/* The raise */}
-        <div className="mt-16 grid gap-10 md:grid-cols-3">
+        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <Reveal>
             <div className="border-t-2 border-deepblue pt-5">
               <CountUp
@@ -113,43 +111,6 @@ export default function Ask() {
             <p className="mt-6 max-w-2xl text-sm text-paper/45">
               {ask.returns.footnote}
             </p>
-          </div>
-        </Reveal>
-
-        {/* Skin in the game, emphasized beat with animated progress */}
-        <Reveal>
-          <div className="mt-20 border border-paper/15 p-8 sm:p-12">
-            <p className="kicker text-deepblue">Skin in the game</p>
-            <div className="mt-6 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p className="font-display text-4xl font-semibold sm:text-5xl">
-                  <CountUp value={ask.founderCommitment} format="usd" />{" "}
-                  <span className="text-paper/50">of</span>{" "}
-                  {usdShort(ask.total)}
-                </p>
-                <p className="mt-3 max-w-md leading-relaxed text-paper/75">
-                  {ask.skinInTheGame}
-                </p>
-              </div>
-              <p className="font-display text-5xl font-semibold text-deepblue sm:text-6xl">
-                <CountUp value={ask.committedPct} format="percent" />
-              </p>
-            </div>
-
-            {/* Progress bar fills to committed percentage on view */}
-            <div className="mt-8">
-              <div className="h-2 w-full overflow-hidden bg-paper/10">
-                <motion.div
-                  className="h-full bg-deepblue"
-                  initial={reduce ? false : { width: 0 }}
-                  whileInView={{ width: `${ask.committedPct}%` }}
-                  viewport={{ once: true, margin: "-15% 0px" }}
-                  transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                  style={reduce ? { width: `${ask.committedPct}%` } : undefined}
-                />
-              </div>
-              <p className="mt-3 kicker text-slate">Founders first</p>
-            </div>
           </div>
         </Reveal>
 

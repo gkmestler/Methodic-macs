@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Methodic Ventures. Mac's Landscaping, Deal One.",
+  title: "Methodic Ventures. Mac's Landscaping.",
   description:
     "Methodic Ventures acquires and holds essential service businesses. Preserving what works. Unlocking what's possible.",
   robots: { index: false, follow: false },
