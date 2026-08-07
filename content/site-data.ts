@@ -6,8 +6,9 @@
 
 export const siteConfig = {
   // Flip enabled to lock the site behind a single shared passphrase.
-  // Courtesy lock only, not real security.
-  passwordGate: { enabled: false, passphrase: "" },
+  // Courtesy lock only, not real security. Share links carry the key:
+  // https://<site>/?access=<passphrase> opens directly.
+  passwordGate: { enabled: true, passphrase: "Preserve2026" },
   confidential: true,
   year: 2026,
   assets: {

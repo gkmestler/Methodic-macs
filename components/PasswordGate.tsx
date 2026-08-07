@@ -1,23 +1,48 @@
 "use client";
 
 import Image from "next/image";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { siteConfig } from "@/content/site-data";
+
+const STORAGE_KEY = "macs-access";
 
 // Courtesy lock, not real security. Off by default via siteConfig.passwordGate.
 // A single shared passphrase, checked client-side. When disabled, renders
-// children directly.
+// children directly. A link carrying ?access=<passphrase> unlocks on arrival
+// (and is remembered), so shared links open directly while the bare URL
+// shows the lock screen.
 export default function PasswordGate({ children }: { children: ReactNode }) {
   const { enabled, passphrase } = siteConfig.passwordGate;
   const [unlocked, setUnlocked] = useState(!enabled);
   const [entry, setEntry] = useState("");
   const [error, setError] = useState(false);
 
+  useEffect(() => {
+    if (!enabled) return;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const key = params.get("access");
+      if (key === passphrase || localStorage.getItem(STORAGE_KEY) === passphrase) {
+        localStorage.setItem(STORAGE_KEY, passphrase);
+        setUnlocked(true);
+        if (key) {
+          // Drop the key from the address bar once consumed
+          window.history.replaceState({}, "", window.location.pathname + window.location.hash);
+        }
+      }
+    } catch {
+      // Storage unavailable (private mode etc.) — manual entry still works
+    }
+  }, [enabled, passphrase]);
+
   if (unlocked) return <>{children}</>;
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     if (entry === passphrase) {
+      try {
+        localStorage.setItem(STORAGE_KEY, passphrase);
+      } catch {}
       setUnlocked(true);
     } else {
       setError(true);
