@@ -656,9 +656,6 @@ export const ask = {
   skinInTheGame:
     "The three partners have each committed $50K. $150K total, already in. Founders first.",
   rofrReprise: "Preserving What Works. Unlocking What's Possible.",
-  ctaHeading: "Express interest.",
-  ctaBody: "A short conversation is the next step. Reach out and we will walk you through the deal.",
-  contact: "[CONTACT DETAILS PLACEHOLDER]",
 } as const;
 
 

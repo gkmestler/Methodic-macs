@@ -121,28 +121,6 @@ export default function Ask() {
           </p>
         </Reveal>
 
-        {/* Single call to action */}
-        <Reveal>
-          <div className="mt-16 flex flex-col items-center text-center">
-            <h3 className="font-display text-3xl font-semibold sm:text-4xl">
-              {ask.ctaHeading}
-            </h3>
-            <p className="mt-4 max-w-md leading-relaxed text-paper/75">
-              {ask.ctaBody}
-            </p>
-            <a
-              href={
-                ask.contact.includes("@")
-                  ? `mailto:${ask.contact}`
-                  : "#ask"
-              }
-              className="kicker mt-8 border border-paper/40 px-8 py-3 text-paper transition-colors hover:border-paper hover:bg-paper hover:text-ink"
-            >
-              Express Interest
-            </a>
-            <p className="mt-4 text-sm text-slate">{ask.contact}</p>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
