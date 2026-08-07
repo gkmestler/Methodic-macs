@@ -252,10 +252,6 @@ export const macs = {
   // The moat, as tight bullets. lead is emphasized, body follows (no em-dashes).
   moatBullets: [
     {
-      lead: "$3 to $4M liability insurance",
-      body: "shuts out cheap operators from commercial accounts.",
-    },
-    {
       lead: "51-year brand recognition",
       body: "across 13 suburban Massachusetts towns.",
     },
@@ -601,7 +597,6 @@ export const advisorsSection = {
 
 export const ask = {
   kicker: "The Ask",
-  title: "The deal is open.",
   total: 500000,
   purchase: 400000,
   workingCapital: 100000,

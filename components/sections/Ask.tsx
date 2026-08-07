@@ -15,11 +15,6 @@ export default function Ask() {
         <Reveal>
           <Kicker>{ask.kicker}</Kicker>
         </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-paper sm:text-6xl">
-            {ask.title}
-          </h2>
-        </Reveal>
 
         {/* The raise */}
         <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
